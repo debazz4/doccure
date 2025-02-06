@@ -120,7 +120,7 @@
 						</div>
 						<div class="col-lg-8">
 							<div class="doctor-slider slider">
-							
+							{% for doctor in doctors %}
 								<!-- Doctor Widget -->
 								<div class="profile-widget">
 									<div class="doc-img">
@@ -133,10 +133,10 @@
 									</div>
 									<div class="pro-content">
 										<h3 class="title">
-											<a href="doctor-profile.html">Ruby Perrin</a> 
+											<a href="doctor-profile.html">{{ doctor.First_Name}} {{ doctor.Last_Name }}</a> 
 											<i class="fas fa-check-circle verified"></i>
 										</h3>
-										<p class="speciality">MDS - Periodontology and Oral Implantology, BDS</p>
+										<p class="speciality">{{ doctor.degrees }} - {{ doctor.specification }}</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -147,19 +147,19 @@
 										</div>
 										<ul class="available-info">
 											<li>
-												<i class="fas fa-map-marker-alt"></i> Florida, USA
+												<i class="fas fa-map-marker-alt"></i> {{ doctor.get_state_display }}, {{ doctor.country }}
 											</li>
 											<li>
-												<i class="far fa-clock"></i> Available on Fri, 22 Mar
+												<i class="far fa-clock"></i> Available on {{ doctor.set_availability }}
 											</li>
 											<li>
-												<i class="far fa-money-bill-alt"></i> $300 - $1000 
-												<i class="fas fa-info-circle" data-toggle="tooltip" title="Lorem Ipsum"></i>
+												<i class="far fa-money-bill-alt"></i> ${{ doctor.min_price }} - ${{ doctor.high_price }} 
+												<i class="fas fa-info-circle" data-toggle="tooltip" title="Open to review"></i>
 											</li>
 										</ul>
 										<div class="row row-sm">
 											<div class="col-6">
-												<a href="doctor-profile.html" class="btn view-btn">View Profile</a>
+												<a href="{% url 'doccure_app:doctor-profile' %}" class="btn view-btn">View Profile</a>
 											</div>
 											<div class="col-6">
 												<a href="booking.html" class="btn book-btn">Book Now</a>
@@ -168,8 +168,9 @@
 									</div>
 								</div>
 								<!-- /Doctor Widget -->
+							{% endfor %}
 						
-								<!-- Doctor Widget -->
+								<!-- Doctor Widget
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
@@ -215,9 +216,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- /Doctor Widget -->
+								 /Doctor Widget -->
 						
-								<!-- Doctor Widget -->
+								<!-- Doctor Widget
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
@@ -263,9 +264,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- /Doctor Widget -->
+								/Doctor Widget -->
 						
-								<!-- Doctor Widget -->
+								<!-- Doctor Widget 
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
@@ -311,9 +312,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- /Doctor Widget -->
+								/Doctor Widget -->
 								
-								<!-- Doctor Widget -->
+								<!-- Doctor Widget 
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
@@ -359,9 +360,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- /Doctor Widget -->
+								/Doctor Widget -->
 								
-								<!-- Doctor Widget -->
+								<!-- Doctor Widget
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
@@ -407,9 +408,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- /Doctor Widget -->
+								/Doctor Widget -->
 								
-								<!-- Doctor Widget -->
+								<!-- Doctor Widget 
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
@@ -455,9 +456,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- /Doctor Widget -->
+								 /Doctor Widget -->
 								
-								<!-- Doctor Widget -->
+								<!-- Doctor Widget
 								<div class="profile-widget">
 									<div class="doc-img">
 										<a href="doctor-profile.html">
@@ -503,7 +504,7 @@
 										</div>
 									</div>
 								</div>
-								<!-- Doctor Widget -->
+								Doctor Widget -->
 								
 							</div>
 						</div>

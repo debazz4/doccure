@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #Apps
-    'doccure_app'
+    'doccure_app',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
