@@ -19,7 +19,6 @@
 				</div>
 			</div>
 			<!-- /Breadcrumb -->
-			
 			<!-- Page Content -->
 			<div class="content">
 				<div class="container">
@@ -30,12 +29,14 @@
 							<div class="doctor-widget">
 								<div class="doc-info-left">
 									<div class="doctor-img">
-										<img src="{% static 'assets/img/doctors/doctor-thumb-02.jpg' %}" class="img-fluid" alt="User Image">
+										{% if doctor.profile_image %}
+										<img src="{{ doctor.profile_image.url }}" class="img-fluid" alt="User Image">
+										{% endif %}
 									</div>
 									<div class="doc-info-cont">
-										<h4 class="doc-name">Dr. Darren Elder</h4>
-										<p class="doc-speciality">BDS, MDS - Oral & Maxillofacial Surgery</p>
-										<p class="doc-department"><img src="{% static 'assets/img/specialities/specialities-05.png' %}" class="img-fluid" alt="Speciality">Dentist</p>
+										<h4 class="doc-name">{{ doctor.title }}. {{ doctor.First_Name}} {{ doctor.Last_Name}}</h4>
+										<p class="doc-speciality">{{ doctor.degrees }} - {{ doctor.specification }}</p>
+										<p class="doc-department"><img src="{% static 'assets/img/specialities/specialities-05.png' %}" class="img-fluid" alt="Speciality">{{ doctor.doc_type}}</p>
 										<div class="rating">
 											<i class="fas fa-star filled"></i>
 											<i class="fas fa-star filled"></i>
@@ -45,26 +46,26 @@
 											<span class="d-inline-block average-rating">(35)</span>
 										</div>
 										<div class="clinic-details">
-											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Newyork, USA - <a href="javascript:void(0);">Get Directions</a></p>
+											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> {{ doctor.state }}, {{ doctor.country }} - <a href="javascript:void(0);">Get Directions</a></p>
 											<ul class="clinic-gallery">
 												<li>
-													<a href="{% static 'assets/img/features/feature-01.jpg' %}" data-fancybox="gallery">
-														<img src="{% static 'assets/img/features/feature-01.jpg' %}" alt="Feature">
+													<a href="{{ doctor.feature_image.url }}" data-fancybox="gallery">
+														<img src="{{ doctor.feature_image.url }}" alt="Feature">
 													</a>
 												</li>
 												<li>
-													<a href="{% static 'assets/img/features/feature-02.jpg' %}" data-fancybox="gallery">
-														<img  src="{% static 'assets/img/features/feature-02.jpg' %}" alt="Feature Image">
+													<a href="{{ doctor.feature_image2.url }}" data-fancybox="gallery">
+														<img  src="{{ doctor.feature_image2.url }}" alt="Feature Image">
 													</a>
 												</li>
 												<li>
-													<a href="{% static 'assets/img/features/feature-03.jpg' %}" data-fancybox="gallery">
-														<img src="{% static 'assets/img/features/feature-03.jpg' %}" alt="Feature">
+													<a href="{{ doctor.feature_image3.url }}" data-fancybox="gallery">
+														<img src="{{ doctor.feature_image3.url }}" alt="Feature">
 													</a>
 												</li>
 												<li>
-													<a href="{% static 'assets/img/features/feature-04.jpg' %}" data-fancybox="gallery">
-														<img src="{% static 'assets/img/features/feature-04.jpg' %}" alt="Feature">
+													<a href="{{ doctor.feature_image4.url }}" data-fancybox="gallery">
+														<img src="{{ doctor.feature_image4.url }}" alt="Feature">
 													</a>
 												</li>
 											</ul>
@@ -80,8 +81,8 @@
 										<ul>
 											<li><i class="far fa-thumbs-up"></i> 99%</li>
 											<li><i class="far fa-comment"></i> 35 Feedback</li>
-											<li><i class="fas fa-map-marker-alt"></i> Newyork, USA</li>
-											<li><i class="far fa-money-bill-alt"></i> $100 per hour </li>
+											<li><i class="fas fa-map-marker-alt"></i> {{ doctor.state }}, {{ doctor.country }}</li>
+											<li><i class="far fa-money-bill-alt"></i> ${{ doctor.price_per_hour }} per hour </li>
 										</ul>
 									</div>
 									<div class="doctor-action">
@@ -752,145 +753,7 @@
 				</div>
 			</div>		
 			<!-- /Page Content -->
-   
-			<!-- Footer -->
-			<footer class="footer">
-				
-				<!-- Footer Top -->
-				<div class="footer-top">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-about">
-									<div class="footer-logo">
-										<img src="assets/img/footer-logo.png" alt="logo">
-									</div>
-									<div class="footer-about-content">
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-										<div class="social-icon">
-											<ul>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-												</li>
-												<li>
-													<a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
-							
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Patients</h2>
-									<ul>
-										<li><a href="search.html"><i class="fas fa-angle-double-right"></i> Search for Doctors</a></li>
-										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="booking.html"><i class="fas fa-angle-double-right"></i> Booking</a></li>
-										<li><a href="patient-dashboard.html"><i class="fas fa-angle-double-right"></i> Patient Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
-							
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-menu">
-									<h2 class="footer-title">For Doctors</h2>
-									<ul>
-										<li><a href="appointments.html"><i class="fas fa-angle-double-right"></i> Appointments</a></li>
-										<li><a href="chat.html"><i class="fas fa-angle-double-right"></i> Chat</a></li>
-										<li><a href="login.html"><i class="fas fa-angle-double-right"></i> Login</a></li>
-										<li><a href="doctor-register.html"><i class="fas fa-angle-double-right"></i> Register</a></li>
-										<li><a href="doctor-dashboard.html"><i class="fas fa-angle-double-right"></i> Doctor Dashboard</a></li>
-									</ul>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
-							
-							<div class="col-lg-3 col-md-6">
-							
-								<!-- Footer Widget -->
-								<div class="footer-widget footer-contact">
-									<h2 class="footer-title">Contact Us</h2>
-									<div class="footer-contact-info">
-										<div class="footer-address">
-											<span><i class="fas fa-map-marker-alt"></i></span>
-											<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
-										</div>
-										<p>
-											<i class="fas fa-phone-alt"></i>
-											+1 315 369 5943
-										</p>
-										<p class="mb-0">
-											<i class="fas fa-envelope"></i>
-											doccure@example.com
-										</p>
-									</div>
-								</div>
-								<!-- /Footer Widget -->
-								
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<!-- /Footer Top -->
-				
-				<!-- Footer Bottom -->
-                <div class="footer-bottom">
-					<div class="container-fluid">
-					
-						<!-- Copyright -->
-						<div class="copyright">
-							<div class="row">
-								<div class="col-md-6 col-lg-6">
-									<div class="copyright-text">
-										<p class="mb-0"><a href="templateshub.net">Templates Hub</a></p>
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-6">
-								
-									<!-- Copyright Menu -->
-									<div class="copyright-menu">
-										<ul class="policy-menu">
-											<li><a href="term-condition.html">Terms and Conditions</a></li>
-											<li><a href="privacy-policy.html">Policy</a></li>
-										</ul>
-									</div>
-									<!-- /Copyright Menu -->
-									
-								</div>
-							</div>
-						</div>
-						<!-- /Copyright -->
-						
-					</div>
-				</div>
-				<!-- /Footer Bottom -->
-				
-			</footer>
-			<!-- /Footer -->
+			
 		   
 		</div>
 		<!-- /Main Wrapper -->

@@ -5,5 +5,5 @@ app_name = 'doccure_app'
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('doctor-profile/', DoctorProfileView.as_view(), name='doctor-profile')
+    path('doctor-profile/<int:pk>/', DoctorProfileView.as_view(), name='doctor-profile')
 ]
