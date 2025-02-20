@@ -42,6 +42,7 @@ class DoctorProfile(models.Model):
     feature_image3 = models.ImageField()
     feature_image4 = models.ImageField()
     specialization = models.TextField(help_text="Enter your specialized duties")
+    about_me = models.TextField(max_length=700, blank=True, null=True)
     availability = models.CharField(max_length=10, choices=DAYS_OF_WEEK, blank=True, null=True)
     set_availability = models.DateField(blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
@@ -49,6 +50,39 @@ class DoctorProfile(models.Model):
 
     def __str__(self):
         return f"{self.First_Name} {self.Last_Name}"
+
+class DoctorEducation(models.Model):
+    doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE, related_name="education")
+    school_name = models.CharField(max_length=255)
+    degree = models.CharField(max_length=255)
+    duration = models.CharField(max_length=100)
+    date_added = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.doctor} ({self.school_name})"
+
+class WorkExperience(models.Model):
+    doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE, related_name="experience")
+    clinic = models.CharField(max_length=255)
+    duration = models.CharField(max_length=255)
+    years = models.CharField(max_length=3, blank=True, null=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.doctor} ({self.clinic})"
+
+class Award(models.Model):
+    doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE, related_name="awards")
+    month_and_year = models.CharField(max_length=255)
+    award_name = models.CharField(max_length=255)
+    comment = models.TextField(max_length=255)
+    date_added = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.doctor} ({self.award})"
 
 class PatientProfile(models.Model):
     pass

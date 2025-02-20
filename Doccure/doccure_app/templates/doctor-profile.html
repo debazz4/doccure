@@ -46,7 +46,7 @@
 											<span class="d-inline-block average-rating">(35)</span>
 										</div>
 										<div class="clinic-details">
-											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> {{ doctor.state }}, {{ doctor.country }} - <a href="javascript:void(0);">Get Directions</a></p>
+											<p class="doc-location"><i class="fas fa-map-marker-alt"></i> {{ doctor.get_state_display }}, {{ doctor.country }} - <a href="javascript:void(0);">Get Directions</a></p>
 											<ul class="clinic-gallery">
 												<li>
 													<a href="{{ doctor.feature_image.url }}" data-fancybox="gallery">
@@ -70,10 +70,13 @@
 												</li>
 											</ul>
 										</div>
+										
 										<div class="clinic-services">
-											<span>Dental Fillings</span>
-											<span>Teeth Whitneing</span>
+											{% for specialization in specialization_list %}
+											<span>{{ specialization }}</span>
+											{% endfor %}
 										</div>
+										
 									</div>
 								</div>
 								<div class="doc-info-right">
@@ -81,7 +84,7 @@
 										<ul>
 											<li><i class="far fa-thumbs-up"></i> 99%</li>
 											<li><i class="far fa-comment"></i> 35 Feedback</li>
-											<li><i class="fas fa-map-marker-alt"></i> {{ doctor.state }}, {{ doctor.country }}</li>
+											<li><i class="fas fa-map-marker-alt"></i> {{ doctor.get_state_display }}, {{ doctor.country }}</li>
 											<li><i class="far fa-money-bill-alt"></i> ${{ doctor.price_per_hour }} per hour </li>
 										</ul>
 									</div>
@@ -142,7 +145,7 @@
 											<!-- About Details -->
 											<div class="widget about-widget">
 												<h4 class="widget-title">About Me</h4>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+												<p>{{ doctor.about_me }}</p>
 											</div>
 											<!-- /About Details -->
 										
@@ -151,30 +154,20 @@
 												<h4 class="widget-title">Education</h4>
 												<div class="experience-box">
 													<ul class="experience-list">
+														{% for education in education_list %}
 														<li>
 															<div class="experience-user">
 																<div class="before-circle"></div>
 															</div>
 															<div class="experience-content">
 																<div class="timeline-content">
-																	<a href="#/" class="name">American Dental Medical University</a>
-																	<div>BDS</div>
-																	<span class="time">1998 - 2003</span>
+																	<a href="#/" class="name">{{ education.school_name }}</a>
+																	<div>{{ education.degree }}</div>
+																	<span class="time">{{ education.duration }}</span>
 																</div>
 															</div>
 														</li>
-														<li>
-															<div class="experience-user">
-																<div class="before-circle"></div>
-															</div>
-															<div class="experience-content">
-																<div class="timeline-content">
-																	<a href="#/" class="name">American Dental Medical University</a>
-																	<div>MDS</div>
-																	<span class="time">2003 - 2005</span>
-																</div>
-															</div>
-														</li>
+														{% endfor %}
 													</ul>
 												</div>
 											</div>
@@ -185,39 +178,19 @@
 												<h4 class="widget-title">Work & Experience</h4>
 												<div class="experience-box">
 													<ul class="experience-list">
+														{% for work_experience in work_experience_list %}
 														<li>
 															<div class="experience-user">
 																<div class="before-circle"></div>
 															</div>
 															<div class="experience-content">
 																<div class="timeline-content">
-																	<a href="#/" class="name">Glowing Smiles Family Dental Clinic</a>
-																	<span class="time">2010 - Present (5 years)</span>
+																	<a href="#/" class="name">{{ work_experience.clinic }}</a>
+																	<span class="time">{{ work_experience.duration }} ({{ work_experience.years }})</span>
 																</div>
 															</div>
 														</li>
-														<li>
-															<div class="experience-user">
-																<div class="before-circle"></div>
-															</div>
-															<div class="experience-content">
-																<div class="timeline-content">
-																	<a href="#/" class="name">Comfort Care Dental Clinic</a>
-																	<span class="time">2007 - 2010 (3 years)</span>
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="experience-user">
-																<div class="before-circle"></div>
-															</div>
-															<div class="experience-content">
-																<div class="timeline-content">
-																	<a href="#/" class="name">Dream Smile Dental Practice</a>
-																	<span class="time">2005 - 2007 (2 years)</span>
-																</div>
-															</div>
-														</li>
+														{% endfor %}
 													</ul>
 												</div>
 											</div>
