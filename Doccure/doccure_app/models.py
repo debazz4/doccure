@@ -75,7 +75,8 @@ class WorkExperience(models.Model):
 
 class Award(models.Model):
     doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE, related_name="awards")
-    month_and_year = models.CharField(max_length=255)
+    month = models.CharField(max_length=255)
+    year = models.IntegerField()
     award_name = models.CharField(max_length=255)
     comment = models.TextField(max_length=255)
     date_added = models.DateTimeField(auto_now_add=True)

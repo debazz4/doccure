@@ -23,4 +23,4 @@ class WorkExperienceForm(forms.ModelForm):
 class AwardsForm(forms.ModelForm):
     class Meta:
         model = Award
-        fields = ['month_and_year', 'award_name', 'comment']
+        fields = ['month', 'year', 'award_name', 'comment']
