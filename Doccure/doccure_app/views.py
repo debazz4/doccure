@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.views.generic import (ListView, TemplateView, DetailView, UpdateView, FormView)
 from .models import DoctorProfile, DoctorEducation
-from .forms import DoctorProfileForm, DoctorEducationForm, WorkExperience, Award
+from .forms import DoctorProfileForm, DoctorEducationForm, WorkExperience, Award, DoctorLocation
 
 class HomeView(ListView):
     model = DoctorProfile
@@ -30,6 +30,9 @@ class DoctorProfileView(DetailView):
 
         # For Work Experience
         context["work_experience_list"] = WorkExperience.objects.filter(doctor=self.object)
+
+        # For DoctorLocation
+        context["doctor_location"] = DoctorLocation.objects.filter(doctor=self.object)
         
         return context
 

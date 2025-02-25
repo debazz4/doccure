@@ -7,9 +7,9 @@ STATUS_CHOICES = (
     (1, "Available")
 )
 DOCTOR_CHOICES = (
-    ("Doctor", "Dr"),
-    ("Doctor of Medicine", "MD"),
-    ("Doctor of Osteopathic Medicine", "DO")
+    ("Dr", "Dr"), # Doctor
+    ("MD", "MD"), # Doctor of Medicine
+    ("DO", "DO",) # Doctor of Osteopathic Medicine
 )
 
 DAYS_OF_WEEK = (
@@ -33,8 +33,8 @@ class DoctorProfile(models.Model):
     state = models.CharField(max_length=40, choices=US_STATES)
     country = CountryField()
     status = models.IntegerField(choices=STATUS_CHOICES, default=0)
-    min_price = models.IntegerField(default=0, blank=True, null=True)
-    high_price = models.IntegerField(default=1000, blank=True, null=True)
+    min_price = models.IntegerField(default=0)
+    high_price = models.IntegerField(default=1000)
     profile_image = models.ImageField()
     price_per_hour = models.IntegerField()
     feature_image = models.ImageField()
@@ -42,8 +42,8 @@ class DoctorProfile(models.Model):
     feature_image3 = models.ImageField()
     feature_image4 = models.ImageField()
     specialization = models.TextField(help_text="Enter your specialized duties")
-    about_me = models.TextField(max_length=700, blank=True, null=True)
-    availability = models.CharField(max_length=10, choices=DAYS_OF_WEEK, blank=True, null=True)
+    about_me = models.TextField(max_length=700)
+    availability = models.CharField(max_length=10, choices=DAYS_OF_WEEK)
     set_availability = models.DateField(blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
@@ -66,7 +66,7 @@ class WorkExperience(models.Model):
     doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE, related_name="experience")
     clinic = models.CharField(max_length=255)
     duration = models.CharField(max_length=255)
-    years = models.CharField(max_length=3, blank=True, null=True)
+    years = models.CharField(max_length=3)
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now_add=True)
 
@@ -83,7 +83,35 @@ class Award(models.Model):
     date_updated = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.doctor} ({self.award})"
+        return f"{self.doctor} ({self.award_name})"
+
+class DoctorLocation(models.Model):
+    doctor = models.ForeignKey(DoctorProfile, on_delete=models.CASCADE, related_name="doctor_location")
+    clinic_name = models.CharField(max_length=250)
+    start_day1 = models.CharField(max_length=10, choices=DAYS_OF_WEEK)
+    end_day1 = models.CharField(max_length=10, choices=DAYS_OF_WEEK, blank=True, null=True)
+    start_time1 = models.TimeField()
+    end_time1 = models.TimeField()
+    start_time1_1 = models.TimeField(blank=True, null=True)
+    end_time1_1 = models.TimeField(blank=True, null=True)
+    start_day2 = models.CharField(max_length=10, choices=DAYS_OF_WEEK, blank=True, null=True)
+    end_day2 = models.CharField(max_length=10, choices=DAYS_OF_WEEK, blank=True, null=True)
+    start_time2 = models.TimeField(blank=True, null=True)
+    end_time2 = models.TimeField(blank=True, null=True)
+    service_charge = models.IntegerField()
+    address = models.CharField(max_length=250)
+    state = models.CharField(max_length=40, choices=US_STATES)
+    country = CountryField()
+    feature_image = models.ImageField()
+    feature_image1 = models.ImageField()
+    feature_image2 = models.ImageField()
+    feature_image3 = models.ImageField()
+    date_added = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.doctor} ({self.clinic_name})"
+
 
 class PatientProfile(models.Model):
     pass

@@ -1,5 +1,6 @@
 from django import forms
-from .models import DoctorProfile, DoctorEducation, WorkExperience, Award
+from .models import (DoctorProfile, DoctorEducation, WorkExperience, Award,
+                    DoctorLocation)
 
 class DoctorProfileForm(forms.ModelForm):
     class Meta:
