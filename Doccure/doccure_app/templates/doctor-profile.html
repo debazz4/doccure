@@ -277,23 +277,23 @@
 														<h5 class="clinic-direction"> <i class="fas fa-map-marker-alt"></i> {{ location.address }}, {{ location.get_country_display }} <br><a href="javascript:void(0);">Get Directions</a></h5>
 														<ul>
 															<li>
-																<a href="assets/img/features/feature-01.jpg" data-fancybox="gallery2">
-																	<img src="assets/img/features/feature-01.jpg" alt="Feature Image">
+																<a href="{{ location.feature_image.url }}" data-fancybox="gallery2">
+																	<img src="{{ location.feature_image.url }}" alt="Feature Image">
 																</a>
 															</li>
 															<li>
-																<a href="assets/img/features/feature-02.jpg" data-fancybox="gallery2">
-																	<img src="assets/img/features/feature-02.jpg" alt="Feature Image">
+																<a href="{{ location.feature_image1.url }}" data-fancybox="gallery2">
+																	<img src="{{ location.feature_image1.url }}" alt="Feature Image">
 																</a>
 															</li>
 															<li>
-																<a href="assets/img/features/feature-03.jpg" data-fancybox="gallery2">
-																	<img src="assets/img/features/feature-03.jpg" alt="Feature Image">
+																<a href="{{ location.feature_image2.url }}" data-fancybox="gallery2">
+																	<img src="{{ location.feature_image2.url }}" alt="Feature Image">
 																</a>
 															</li>
 															<li>
-																<a href="assets/img/features/feature-04.jpg" data-fancybox="gallery2">
-																	<img src="assets/img/features/feature-04.jpg" alt="Feature Image">
+																<a href="{{ location.feature_image3.url }}" data-fancybox="gallery2">
+																	<img src="{{ location.feature_image3.url }}" alt="Feature Image">
 																</a>
 															</li>
 														</ul>

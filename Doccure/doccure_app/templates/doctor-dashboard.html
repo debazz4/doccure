@@ -1,33 +1,6 @@
-<!DOCTYPE html> 
-<html lang="en">
-	
-<!-- doccure/doctor-dashboard.html  30 Nov 2019 04:12:03 GMT -->
-<head>
-		<meta charset="utf-8">
-		<title>Doccure</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-		
-		<!-- Favicons -->
-		<link href="assets/img/favicon.png" rel="icon">
-		
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		
-		<!-- Fontawesome CSS -->
-		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
-		
-		<!-- Main CSS -->
-		<link rel="stylesheet" href="assets/css/style.css">
-		
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.min.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
-	
-	</head>
-	<body>
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
 
 		<!-- Main Wrapper -->
 		<div class="main-wrapper">
@@ -189,7 +162,7 @@
 								<div class="widget-profile pro-widget-content">
 									<div class="profile-info-widget">
 										<a href="#" class="booking-doc-img">
-											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image">
+											<img src="{% static 'assets/img/doctors/doctor-thumb-02.jpg' %}" alt="User Image">
 										</a>
 										<div class="profile-det-info">
 											<h3>Dr. Darren Elder</h3>
@@ -289,7 +262,7 @@
 													<div class="dash-widget dct-border-rht">
 														<div class="circle-bar circle-bar1">
 															<div class="circle-graph1" data-percent="75">
-																<img src="assets/img/icon-01.png" class="img-fluid" alt="patient">
+																<img src="{% static 'assets/img/icon-01.png' %}" class="img-fluid" alt="patient">
 															</div>
 														</div>
 														<div class="dash-widget-info">
@@ -304,7 +277,7 @@
 													<div class="dash-widget dct-border-rht">
 														<div class="circle-bar circle-bar2">
 															<div class="circle-graph2" data-percent="65">
-																<img src="assets/img/icon-02.png" class="img-fluid" alt="Patient">
+																<img src="{% static 'assets/img/icon-02.png' %}" class="img-fluid" alt="Patient">
 															</div>
 														</div>
 														<div class="dash-widget-info">
@@ -319,7 +292,7 @@
 													<div class="dash-widget">
 														<div class="circle-bar circle-bar3">
 															<div class="circle-graph3" data-percent="50">
-																<img src="assets/img/icon-03.png" class="img-fluid" alt="Patient">
+																<img src="{% static 'assets/img/icon-03.png' %}" class="img-fluid" alt="Patient">
 															</div>
 														</div>
 														<div class="dash-widget-info">
@@ -373,7 +346,7 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient.jpg" alt="User Image"></a>
+																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{% static 'assets/img/patients/patient.jpg' %}" alt="User Image"></a>
 																				<a href="patient-profile.html">Richard Wilson <span>#PT0016</span></a>
 																			</h2>
 																		</td>
@@ -399,7 +372,7 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient1.jpg" alt="User Image"></a>
+																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{% static 'assets/img/patients/patient1.jpg' %}" alt="User Image"></a>
 																				<a href="patient-profile.html">Charlene Reed <span>#PT0001</span></a>
 																			</h2>
 																		</td>
@@ -425,7 +398,7 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient2.jpg" alt="User Image"></a>
+																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{% static 'assets/img/patients/patient2.jpg' %}" alt="User Image"></a>
 																				<a href="patient-profile.html">Travis Trimble  <span>#PT0002</span></a>
 																			</h2>
 																		</td>
@@ -451,7 +424,7 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient3.jpg" alt="User Image"></a>
+																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{% static 'assets/img/patients/patient3.jpg' %}" alt="User Image"></a>
 																				<a href="patient-profile.html">Carl Kelly <span>#PT0003</span></a>
 																			</h2>
 																		</td>
@@ -477,7 +450,7 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient4.jpg" alt="User Image"></a>
+																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{% static 'assets/img/patients/patient4.jpg' %}" alt="User Image"></a>
 																				<a href="patient-profile.html">Michelle Fairfax <span>#PT0004</span></a>
 																			</h2>
 																		</td>
@@ -503,7 +476,7 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient5.jpg" alt="User Image"></a>
+																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{% static 'assets/img/patients/patient5.jpg' %}" alt="User Image"></a>
 																				<a href="patient-profile.html">Gina Moore <span>#PT0005</span></a>
 																			</h2>
 																		</td>
@@ -554,7 +527,7 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient6.jpg" alt="User Image"></a>
+																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{% static 'assets/img/patients/patient6.jpg' %}" alt="User Image"></a>
 																				<a href="patient-profile.html">Elsie Gilley <span>#PT0006</span></a>
 																			</h2>
 																		</td>
@@ -580,7 +553,7 @@
 																	<tr>
 																		<td>
 																			<h2 class="table-avatar">
-																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/patients/patient7.jpg" alt="User Image"></a>
+																				<a href="patient-profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{% static 'assets/img/patients/patient7.jpg' %}" alt="User Image"></a>
 																				<a href="patient-profile.html">Joan Gardner <span>#PT0006</span></a>
 																			</h2>
 																		</td>
@@ -869,25 +842,5 @@
 		   
 		</div>
 		<!-- /Main Wrapper -->
-	  
-		<!-- jQuery -->
-		<script src="assets/js/jquery.min.js"></script>
-		
-		<!-- Bootstrap Core JS -->
-		<script src="assets/js/popper.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		
-		<!-- Sticky Sidebar JS -->
-        <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
-        <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
-		
-		<!-- Circle Progress JS -->
-		<script src="assets/js/circle-progress.min.js"></script>
-		
-		<!-- Custom JS -->
-		<script src="assets/js/script.js"></script>
-		
-	</body>
-
-<!-- doccure/doctor-dashboard.html  30 Nov 2019 04:12:09 GMT -->
-</html>
+	{% endblock %}
+	

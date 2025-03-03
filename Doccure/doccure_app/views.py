@@ -36,6 +36,11 @@ class DoctorProfileView(DetailView):
         
         return context
 
+class DoctorDashboardView(TemplateView):
+    #model = DoctorProfile
+    template_name = "doctor-dashboard.html"
+    #context_object_name = "doctor-dashboard"
+
 
 
 # View to update Doctor Profile
